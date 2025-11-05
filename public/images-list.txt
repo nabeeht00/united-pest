@@ -1,0 +1,73 @@
+UNITED PEST WEBSITE - IMAGE FILES LIST
+==========================================
+
+All images are located in the /public folder and will be accessible at your domain root.
+
+REQUIRED IMAGE FILES:
+====================
+
+1. Company Logo:
+   - /10694412_797512036962044_1570787189881874716_o.jpg
+   - /10694412_797512036962044_1570787189881874716_o copy.jpg
+
+2. Team/Hero Images:
+   - /ChatGPT Image Jun 23, 2025, 02_34_12 PM copy.png
+
+3. Service Images - Pest Management:
+   - /Untitled design.png (Ants)
+   - /pexels-james-frid-81279-17287162.jpg (Bees)
+   - /How to check for bedbugs_ Signs to look for in your room, plus what a bite looks like — USA TODAY.jpeg (Bed Bugs)
+   - /wasp copy.jpg (Wasps)
+   - /tick.jpg (Ticks)
+   - /This Is the Most Termite-Infested City in America.jpeg (Termites)
+   - /snake copy.jpg (Snakes)
+   - /cat.jpg (Cats)
+   - /dog.jpg (Dogs)
+   - /bird.jpg (Birds)
+
+4. Service Images - Vector Management:
+   - /Mouse Infestation _ Pest Control Canberra.jpeg (Rodents)
+   - /Tips For Cockroach Pest Control.jpeg (Cockroaches)
+   - /Flies and bugs are a symbol of disgust and fester….jpeg (Flies)
+   - /What's the best way to get rid of mosquitoes_.jpeg (Mosquitoes)
+   - /flea.jpg (Rat Fleas)
+
+5. Service Images - Solutions:
+   - /fogging.jpg (Fogging)
+   - /residual.jpg (Residual Spraying)
+   - /ulv.jpg (ULV Misting)
+   - /gelbaiting.jpg (Gel Baiting)
+   - /spikes copy copy.jpg (Bird Control Spikes)
+
+6. Process/Approach Images:
+   - /ChatGPT Image Jun 20, 2025, 06_35_52 PM.png (Inspection)
+   - /ChatGPT Image Jun 20, 2025, 06_52_12 PM.png (Thermal Imaging)
+   - /assesment.png (Assessment)
+   - /treatment.png (Treatment)
+   - /ChatGPT Image Jun 20, 2025, 06_13_41 PM.png (Review)
+
+HOSTING INSTRUCTIONS:
+====================
+
+1. Upload ALL files from the 'dist' folder to your hosting 'public_html' directory
+2. Upload ALL image files from the 'public' folder to your hosting 'public_html' directory
+3. Make sure image file names match exactly (including spaces and special characters)
+4. Test each page to ensure images load correctly
+
+IMAGE PATH FORMAT:
+==================
+All images use absolute paths starting with "/" 
+Example: /Untitled design.png will load from https://yourdomain.com/Untitled design.png
+
+IMPORTANT NOTES:
+================
+- Keep original file names exactly as shown
+- Upload images to the root directory (public_html)
+- Do not create subfolders for images
+- Test the website after upload to verify all images appear
+
+If any images don't appear after hosting:
+1. Check file names match exactly
+2. Verify images are in the root directory
+3. Check file permissions (should be 644)
+4. Clear browser cache and test again

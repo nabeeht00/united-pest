@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United Pest & Vector Management - Singapore's Trusted Pest Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .page { display: none; }
+        .page.active { display: block; }
+        .nav-item.active { color: #ea580c; border-bottom: 2px solid #ea580c; }
+        .gradient-bg { background: linear-gradient(135deg, #374151 0%, #4b5563 50%, #ea580c 100%); }
+        .service-tab { cursor: pointer; transition: all 0.3s ease; }
+        .service-tab.active { background: #ea580c; color: white; }
+        .service-category { display: none; }
+        .service-category.active { display: block; }
+        .floating-btn { position: fixed; z-index: 1000; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+        .floating-btn:hover { transform: scale(1.1); }
+        .whatsapp-btn { bottom: 140px; right: 20px; background: #25d366; }
+        .call-btn { bottom: 70px; right: 20px; background: #ef4444; }
+        .ai-chat-btn { bottom: 70px; left: 20px; background: #3b82f6; }
+        .live-chat-btn { top: 100px; right: 20px; background: #8b5cf6; }
+        .chat-window { position: fixed; width: 320px; max-height: 400px; background: white; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); z-index: 1001; display: none; }
+        .chat-window.show { display: flex; flex-direction: column; }
+        .ai-chat { bottom: 140px; left: 20px; }
+        .live-chat { top: 160px; right: 20px; }
+        .testimonial-card { transition: transform 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-5px); }
+        .service-card { transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .hero-animation { animation: fadeInUp 1s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .pest-grid-item { transition: all 0.3s ease; }
+        .pest-grid-item:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+        <div class="w-full px-6 py-4">
+            <div class="flex items-center justify-between w-full">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer flex-shrink-0" onclick="showPage('home')">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iOCIgZmlsbD0iI2VhNTgwYyIvPgo8cGF0aCBkPSJNMTIgMTZIMzZWMzJIMTJWMTZaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="United Pest Logo" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-xl font-bold">
+                            <span class="text-gray-600">United</span>
+                            <span class="text-orange-600">Pest</span>
+                        </h1>
+                        <p class="text-xs text-gray-600 font-medium">Vector Management Pte Ltd</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+                    <button onclick="showPage('home')" class="nav-item font-medium transition-colors duration-200 whitespace-nowrap text-gray-700 hover:text-orange-600 pb-1">Home</button>
+                    <button onclick="showPage('approach')" class="nav-item font-medium transition-colors duration-200 whitespace-nowrap text-gray-700 hover:text-orange-600 pb-1">Our Approach</button>
+                    <button onclick="showPage('services')" class="nav-item font-medium transition-colors duration-200 whitespace-nowrap text-gray-700 hover:text-orange-600 pb-1">Our Services</button>
+                    <button onclick="showPage('testimonials')" class="nav-item font-medium transition-colors duration-200 whitespace-nowrap text-gray-700 hover:text-orange-600 pb-1">Testimonials</button>
+                    <button onclick="showPage('contact')" class="nav-item font-medium transition-colors duration-200 whitespace-nowrap text-gray-700 hover:text-orange-600 pb-1">Contact Us</button>
+                </nav>
+
+                <!-- Contact Info & Call Button -->
+                <div class="hidden md:flex items-center space-x-4 flex-shrink-0">
+                    <div class="text-right">
+                        <p class="text-xs text-gray-600">24/7 Hotline</p>
+                        <p class="text-sm font-bold text-orange-600">+65 9222 2278</p>
+                    </div>
+                    <a href="tel:+6566989118" class="bg-gradient-to-r from-orange-600 to-orange-700 text-white px-4 py-2 rounded-lg hover:from-orange-700 hover:to-orange-800 transition-all duration-200 flex items-center space-x-2 whitespace-nowrap">
+                        <span>📞</span>
+                        <span>Call Now</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0">
+                    <span id="menu-icon">☰</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden mt-4 pb-4 border-t border-gray-200 hidden">
+                <nav class="flex flex-col space-y-2 mt-4">
+                    <button onclick="showPage('home'); toggleMobileMenu()" class="mobile-nav-item px-4 py-2 text-left rounded-lg transition-colors text-gray-700 hover:text-orange-600 hover:bg-gray-50">Home</button>
+                    <button onclick="showPage('approach'); toggleMobileMenu()" class="mobile-nav-item px-4 py-2 text-left rounded-lg transition-colors text-gray-700 hover:text-orange-600 hover:bg-gray-50">Our Approach</button>
+                    <button onclick="showPage('services'); toggleMobileMenu()" class="mobile-nav-item px-4 py-2 text-left rounded-lg transition-colors text-gray-700 hover:text-orange-600 hover:bg-gray-50">Our Services</button>
+                    <button onclick="showPage('testimonials'); toggleMobileMenu()" class="mobile-nav-item px-4 py-2 text-left rounded-lg transition-colors text-gray-700 hover:text-orange-600 hover:bg-gray-50">Testimonials</button>
+                    <button onclick="showPage('contact'); toggleMobileMenu()" class="mobile-nav-item px-4 py-2 text-left rounded-lg transition-colors text-gray-700 hover:text-orange-600 hover:bg-gray-50">Contact Us</button>
+                    <div class="px-4 py-4 border-t border-gray-200 mt-2">
+                        <p class="text-sm text-gray-600 mb-2">24/7 Hotline</p>
+                        <a href="tel:+6592222278" class="flex items-center space-x-2 bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors mb-2">
+                            <span>📞</span>
+                            <span>+65 9222 2278</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="pt-20">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="relative py-20 lg:py-32 overflow-hidden">
+                <div class="absolute inset-0 gradient-bg"></div>
+                <div class="absolute inset-0 bg-black/30"></div>
+                
+                <div class="relative container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center text-white hero-animation">
+                        <div class="inline-flex items-center bg-orange-500/20 backdrop-blur-sm border border-orange-400/30 rounded-full px-6 py-3 mb-8">
+                            <span class="w-5 h-5 mr-2">🛡️</span>
+                            <span class="font-medium">Singapore's Trusted Pest Control Experts</span>
+                        </div>
+                        
+                        <h1 class="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+                            Keeping You
+                            <span class="block bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                                Safe & Pest Free
+                            </span>
+                        </h1>
+                        
+                        <p class="text-xl lg:text-2xl text-gray-100 mb-12 leading-relaxed max-w-3xl mx-auto">
+                            Professional pest control and vector management services across Singapore. 
+                            Fast, effective, and reliable solutions for all your pest problems.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                            <a href="tel:+6566989118" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center space-x-2">
+                                <span>Call Now</span>
+                                <span>→</span>
+                            </a>
+                            <a href="https://wa.me/6592222278" target="_blank" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition-all duration-200 flex items-center justify-center space-x-2">
+                                <span>WhatsApp Us</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Intro -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto text-center">
+                        <div class="inline-flex items-center bg-orange-100 text-orange-600 rounded-full px-4 py-2 mb-6">
+                            <span class="w-4 h-4 mr-2">👥</span>
+                            <span class="text-sm font-medium">Who We Are</span>
+                        </div>
+                        
+                        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            United Pest & Vector Management
+                        </h2>
+                        
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            We are Singapore's leading pest control specialists, dedicated to protecting homes 
+                            and businesses from all types of pest infestations. With years of experience and 
+                            cutting-edge technology, we deliver comprehensive solutions that work.
+                        </p>
+
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="flex items-center justify-center space-x-3 bg-gray-50 rounded-lg p-4">
+                                <span class="w-5 h-5 text-green-500">✓</span>
+                                <span class="text-gray-700 font-medium">Licensed & Certified</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3 bg-gray-50 rounded-lg p-4">
+                                <span class="w-5 h-5 text-green-500">✓</span>
+                                <span class="text-gray-700 font-medium">24/7 Emergency Service</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3 bg-gray-50 rounded-lg p-4">
+                                <span class="w-5 h-5 text-green-500">✓</span>
+                                <span class="text-gray-700 font-medium">Eco-Friendly Solutions</span>
+                            </div>
+                            <div class="flex items-center justify-center space-x-3 bg-gray-50 rounded-lg p-4">
+                                <span class="w-5 h-5 text-green-500">✓</span>
+                                <span class="text-gray-700 font-medium">Guaranteed Results</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pest Types Grid -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <div class="inline-flex items-center bg-orange-100 text-orange-600 rounded-full px-4 py-2 mb-4">
+                            <span class="w-4 h-4 mr-2">🛡️</span>
+                            <span class="text-sm font-medium">Pest Types We Handle</span>
+                        </div>
+                        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                            Complete Pest Control Solutions
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            From common household pests to complex infestations, we handle it all with 
+                            professional expertise and guaranteed results.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🐜</div>
+                            <h3 class="font-semibold text-gray-900">Ants</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🪳</div>
+                            <h3 class="font-semibold text-gray-900">Cockroaches</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🐭</div>
+                            <h3 class="font-semibold text-gray-900">Rodents</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🐛</div>
+                            <h3 class="font-semibold text-gray-900">Termites</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🦟</div>
+                            <h3 class="font-semibold text-gray-900">Mosquitoes</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🐍</div>
+                            <h3 class="font-semibold text-gray-900">Snakes</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🐦</div>
+                            <h3 class="font-semibold text-gray-900">Birds</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🐝</div>
+                            <h3 class="font-semibold text-gray-900">Bees</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🪰</div>
+                            <h3 class="font-semibold text-gray-900">Flies</h3>
+                        </div>
+                        <div class="pest-grid-item bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-200 cursor-pointer">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-lg bg-red-100 flex items-center justify-center text-2xl">🕷️</div>
+                            <h3 class="font-semibold text-gray-900">Spiders</h3>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <p class="text-gray-600 mb-6">
+                            Don't see your pest problem listed? We handle all types of pest issues.
+                        </p>
+                        <a href="https://wa.me/6592222278" target="_blank" class="inline-flex items-center bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-200">
+                            Contact Us Now
+                            <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- OUR APPROACH PAGE -->
+        <div id="approach" class="page">
+            <!-- Header -->
+            <section class="py-20 bg-gradient-to-br from-red-50 to-orange-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <div class="inline-flex items-center bg-red-100 text-red-600 rounded-full px-4 py-2 mb-6">
+                            <span class="w-4 h-4 mr-2">🎯</span>
+                            <span class="text-sm font-medium">Our Methodology</span>
+                        </div>
+                        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                            Our Professional Approach
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            We follow a systematic, science-based approach to pest control that ensures 
+                            effective results and long-term protection for your property.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Steps -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <!-- Step 1 -->
+                    <div class="mb-20">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div class="flex items-center mb-6">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold">1</span>
+                                    </div>
+                                    <div class="bg-red-100 p-3 rounded-lg">
+                                        <span class="text-2xl">🔍</span>
+                                    </div>
+                                </div>
+                                
+                                <h2 class="text-3xl font-bold text-gray-900 mb-4">Inspection</h2>
+                                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                    Comprehensive property assessment to identify pest types, entry points, and infestation levels.
+                                </p>
+
+                                <ul class="space-y-3">
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Visual inspection of all areas</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Identification of pest species</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Assessment of damage levels</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Documentation with photos</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="lg:col-start-2">
+                                <div class="relative">
+                                    <div class="w-full h-[400px] bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl shadow-xl flex items-center justify-center">
+                                        <span class="text-6xl">🔍</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="mb-20">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center lg:grid-flow-col-dense">
+                            <div class="lg:col-start-2">
+                                <div class="flex items-center mb-6">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold">2</span>
+                                    </div>
+                                    <div class="bg-red-100 p-3 rounded-lg">
+                                        <span class="text-2xl">🌡️</span>
+                                    </div>
+                                </div>
+                                
+                                <h2 class="text-3xl font-bold text-gray-900 mb-4">Thermal Imaging</h2>
+                                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                    Advanced thermal imaging technology to detect hidden infestations and moisture issues.
+                                </p>
+
+                                <ul class="space-y-3">
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Non-invasive detection method</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Identifies hidden pest activity</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Locates moisture problems</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Precise targeting of treatment areas</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="lg:col-start-1">
+                                <div class="relative">
+                                    <div class="w-full h-[400px] bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-xl flex items-center justify-center">
+                                        <span class="text-6xl">🌡️</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="mb-20">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <div class="flex items-center mb-6">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold">3</span>
+                                    </div>
+                                    <div class="bg-red-100 p-3 rounded-lg">
+                                        <span class="text-2xl">🎯</span>
+                                    </div>
+                                </div>
+                                
+                                <h2 class="text-3xl font-bold text-gray-900 mb-4">Treatment</h2>
+                                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                    Professional application of targeted treatments using safe, effective methods.
+                                </p>
+
+                                <ul class="space-y-3">
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Eco-friendly treatment options</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Targeted application methods</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Safety protocols followed</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Minimal disruption to daily life</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="lg:col-start-2">
+                                <div class="relative">
+                                    <div class="w-full h-[400px] bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl shadow-xl flex items-center justify-center">
+                                        <span class="text-6xl">🎯</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div>
+                        <div class="grid lg:grid-cols-2 gap-12 items-center lg:grid-flow-col-dense">
+                            <div class="lg:col-start-2">
+                                <div class="flex items-center mb-6">
+                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold">4</span>
+                                    </div>
+                                    <div class="bg-red-100 p-3 rounded-lg">
+                                        <span class="text-2xl">👁️</span>
+                                    </div>
+                                </div>
+                                
+                                <h2 class="text-3xl font-bold text-gray-900 mb-4">Review & Follow-Up</h2>
+                                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                    Continuous monitoring and follow-up treatments to ensure complete pest elimination.
+                                </p>
+
+                                <ul class="space-y-3">
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Regular monitoring visits</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Treatment effectiveness evaluation</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Additional treatments if needed</span>
+                                    </li>
+                                    <li class="flex items-center space-x-3">
+                                        <span class="w-5 h-5 text-green-500">✓</span>
+                                        <span class="text-gray-700">Prevention recommendations</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="lg:col-start-1">
+                                <div class="relative">
+                                    <div class="w-full h-[400px] bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl shadow-xl flex items-center justify-center">
+                                        <span class="text-6xl">👁️</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- OUR SERVICES PAGE -->
+        <div id="services" class="page">
+            <!-- Header -->
+            <section class="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <div class="inline-flex items-center bg-orange-100 text-orange-600 rounded-full px-4 py-2 mb-6">
+                            <span class="w-4 h-4 mr-2">🛡️</span>
+                            <span class="text-sm font-medium">Professional Services</span>
+                        </div>
+                        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                            Our Services
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Comprehensive pest control solutions organized into three main categories. 
+                            Choose a category below to explore our specialized services.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabbed Services -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <!-- Tab Navigation -->
+                    <div class="flex flex-col sm:flex-row justify-center mb-16">
+                        <div class="bg-gray-100 rounded-2xl p-2 inline-flex">
+                            <button onclick="showServiceCategory('pest-management')" class="service-tab active flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-200">
+                                <span>🐛</span>
+                                <span class="whitespace-nowrap">Pest Management</span>
+                            </button>
+                            <button onclick="showServiceCategory('vector-management')" class="service-tab flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 text-gray-600 hover:text-orange-600 hover:bg-white">
+                                <span>⚡</span>
+                                <span class="whitespace-nowrap">Vector Management</span>
+                            </button>
+                            <button onclick="showServiceCategory('solutions')" class="service-tab flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 text-gray-600 hover:text-orange-600 hover:bg-white">
+                                <span>⚙️</span>
+                                <span class="whitespace-nowrap">Solutions</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pest Management Category -->
+                    <div id="pest-management" class="service-category active">
+                        <div class="text-center mb-16">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl mb-6">
+                                <span class="text-2xl text-white">🐛</span>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Pest Management</h2>
+                            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                                Comprehensive pest control solutions for all types of household and commercial pests.
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center">
+                                    <span class="text-4xl">🐜</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Ants Control</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Complete ant colony elimination using targeted baiting systems.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Species identification
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Colony elimination
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Entry point sealing
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center">
+                                    <span class="text-4xl">🐝</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bees Control</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Safe bee removal and relocation services with protective equipment.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Safe removal
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Relocation services
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Protective equipment
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center">
+                                    <span class="text-4xl">🛏️</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bed Bugs Control</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Heat treatment and chemical applications for complete bed bug elimination.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Heat treatment
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Chemical application
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Mattress treatment
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-red-100 to-orange-100 flex items-center justify-center">
+                                    <span class="text-4xl">🐛</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Termites Control</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Advanced termite treatment and prevention programs.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Soil treatment
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Baiting systems
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Wood treatment
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vector Management Category -->
+                    <div id="vector-management" class="service-category">
+                        <div class="text-center mb-16">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl mb-6">
+                                <span class="text-2xl text-white">⚡</span>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Vector Management</h2>
+                            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                                Specialized control of disease-carrying pests and vectors.
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                                    <span class="text-4xl">🪳</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Cockroaches Control</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Professional cockroach elimination using gel baiting and residual spraying.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Gel baiting system
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Residual spraying
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Crack & crevice treatment
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                                    <span class="text-4xl">🦟</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Mosquitoes Control</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Comprehensive mosquito management including breeding site treatment.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Breeding site treatment
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Fogging services
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Larvicide application
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                                    <span class="text-4xl">🐭</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Rodent Control</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Comprehensive rat and mice control with trapping and exclusion methods.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Trapping systems
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Baiting programs
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Entry point sealing
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solutions Category -->
+                    <div id="solutions" class="service-category">
+                        <div class="text-center mb-16">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl mb-6">
+                                <span class="text-2xl text-white">⚙️</span>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Solutions</h2>
+                            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                                Professional pest control methods and installation services.
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+                                    <span class="text-4xl">💨</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Fogging</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Thermal and cold fogging services for large area pest control.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Thermal fogging
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Cold fogging
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Large area coverage
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+                                    <span class="text-4xl">🎯</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Gel Baiting</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Targeted gel baiting systems for cockroaches and ants.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Targeted application
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            High effectiveness
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Safe for families
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="service-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                <div class="relative h-40 bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+                                    <span class="text-4xl">🔧</span>
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bird Spike Installation</h3>
+                                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                        Professional bird spike installation for effective bird deterrence.
+                                    </p>
+                                    <ul class="space-y-1 mb-4">
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Professional installation
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Durable materials
+                                        </li>
+                                        <li class="flex items-center text-xs text-gray-600">
+                                            <span class="w-3 h-3 text-green-500 mr-2">✓</span>
+                                            Humane deterrent
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-200">
+                                        Get Quote →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- TESTIMONIALS PAGE -->
+        <div id="testimonials" class="page">
+            <!-- Header -->
+            <section class="py-20 bg-gradient-to-br from-red-50 to-orange-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <div class="inline-flex items-center bg-red-100 text-red-600 rounded-full px-4 py-2 mb-6">
+                            <span class="w-4 h-4 mr-2">👥</span>
+                            <span class="text-sm font-medium">Customer Reviews</span>
+                        </div>
+                        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                            What Our Customers Say
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Don't just take our word for it. Here's what satisfied customers 
+                            across Singapore have to say about our pest control services.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews Grid -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 relative">
+                            <div class="absolute -top-3 left-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full p-2">
+                                <span class="text-white text-sm">💬</span>
+                            </div>
+                            <div class="inline-block bg-red-100 text-red-600 text-xs font-medium px-3 py-1 rounded-full mb-4 mt-2">
+                                Termite Control
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="text-gray-700 mb-6 leading-relaxed">
+                                "United Pest solved our termite problem quickly and professionally. Their team was knowledgeable, punctual, and the treatment was completely effective. Highly recommended!"
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">SL</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Emily Lim</p>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="mr-1">📍</span>
+                                        Orchard Road
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 relative">
+                            <div class="absolute -top-3 left-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full p-2">
+                                <span class="text-white text-sm">💬</span>
+                            </div>
+                            <div class="inline-block bg-red-100 text-red-600 text-xs font-medium px-3 py-1 rounded-full mb-4 mt-2">
+                                Cockroach Control
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="text-gray-700 mb-6 leading-relaxed">
+                                "Excellent service for our office building. They handled our cockroach issue discreetly and efficiently. The staff is professional and the results speak for themselves."
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-400 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">DC</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">David Chen</p>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="mr-1">📍</span>
+                                        Marina Bay
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 relative">
+                            <div class="absolute -top-3 left-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full p-2">
+                                <span class="text-white text-sm">💬</span>
+                            </div>
+                            <div class="inline-block bg-red-100 text-red-600 text-xs font-medium px-3 py-1 rounded-full mb-4 mt-2">
+                                Rodent Control
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="text-gray-700 mb-6 leading-relaxed">
+                                "Outstanding customer service and results. They responded to our emergency call within an hour and completely eliminated our rat problem. Worth every dollar!"
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">MT</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Michelle Tan</p>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="mr-1">📍</span>
+                                        Sentosa Cove
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 relative">
+                            <div class="absolute -top-3 left-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full p-2">
+                                <span class="text-white text-sm">💬</span>
+                            </div>
+                            <div class="inline-block bg-red-100 text-red-600 text-xs font-medium px-3 py-1 rounded-full mb-4 mt-2">
+                                General Pest Control
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="text-gray-700 mb-6 leading-relaxed">
+                                "Professional, reliable, and effective. Their eco-friendly approach was perfect for our family home. The technicians were courteous and explained everything clearly."
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-400 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">RW</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Robert Wong</p>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="mr-1">📍</span>
+                                        Jurong East
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 relative">
+                            <div class="absolute -top-3 left-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full p-2">
+                                <span class="text-white text-sm">💬</span>
+                            </div>
+                            <div class="inline-block bg-red-100 text-red-600 text-xs font-medium px-3 py-1 rounded-full mb-4 mt-2">
+                                Ant Control
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="text-gray-700 mb-6 leading-relaxed">
+                                "Best pest control service in Singapore! They solved our ant problem that other companies couldn't fix. Professional, affordable, and guaranteed results."
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-green-400 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">EG</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Emily Goh</p>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="mr-1">📍</span>
+                                        Tampines
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 relative">
+                            <div class="absolute -top-3 left-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full p-2">
+                                <span class="text-white text-sm">💬</span>
+                            </div>
+                            <div class="inline-block bg-red-100 text-red-600 text-xs font-medium px-3 py-1 rounded-full mb-4 mt-2">
+                                Mosquito Control
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="text-gray-700 mb-6 leading-relaxed">
+                                "Exceptional service from start to finish. Their mosquito control program has made our outdoor spaces enjoyable again. Highly professional team!"
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-white font-bold">JL</span>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">James Lee</p>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="mr-1">📍</span>
+                                        Toa Payoh
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="py-20 bg-gradient-to-r from-red-600 to-orange-600">
+                <div class="container mx-auto px-4">
+                    <div class="text-center text-white mb-12">
+                        <h2 class="text-3xl font-bold mb-4">
+                            Trusted by Thousands of Customers
+                        </h2>
+                        <p class="text-xl text-red-100">
+                            Our track record speaks for itself
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-4 gap-8 text-center text-white">
+                        <div>
+                            <p class="text-4xl font-bold mb-2">5.0/5.0</p>
+                            <p class="text-red-100">Average Rating</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold mb-2">1,000+</p>
+                            <p class="text-red-100">Happy Customers</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold mb-2">99%</p>
+                            <p class="text-red-100">Success Rate</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold mb-2">24/7</p>
+                            <p class="text-red-100">Emergency Service</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <!-- Header -->
+            <section class="py-20 bg-gradient-to-br from-red-50 to-orange-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <div class="inline-flex items-center bg-red-100 text-red-600 rounded-full px-4 py-2 mb-6">
+                            <span class="w-4 h-4 mr-2">💬</span>
+                            <span class="text-sm font-medium">Get In Touch</span>
+                        </div>
+                        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+                            Contact Us
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Ready to solve your pest problem? Get in touch with us for professional 
+                            pest control services across Singapore.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Information & Form -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-4">
+                    <div class="grid lg:grid-cols-3 gap-12">
+                        <!-- Contact Information -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-gray-50 rounded-2xl p-8">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-8">Get In Touch</h3>
+                                
+                                <div class="space-y-6">
+                                    <!-- Emergency Contact -->
+                                    <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                                        <div class="flex items-center text-red-700 mb-2">
+                                            <span class="w-5 h-5 mr-2">📞</span>
+                                            <span class="font-semibold">24/7 Emergency Hotline</span>
+                                        </div>
+                                        <a href="tel:+6592222278" class="text-lg font-bold text-red-600 hover:text-red-700">
+                                            +65 9222 2278
+                                        </a>
+                                        <p class="text-sm text-red-600 mt-1">Immediate response for urgent pest issues</p>
+                                    </div>
+
+                                    <!-- Regular Contact -->
+                                    <div class="flex items-start space-x-3">
+                                        <div class="bg-blue-100 p-2 rounded-lg">
+                                            <span class="text-blue-600">📞</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Main Office</p>
+                                            <a href="tel:+6566989118" class="text-blue-600 hover:text-blue-700">
+                                                +65 6698 9118
+                                            </a>
+                                            <p class="text-sm text-gray-600">Mon-Fri 9AM-6PM, Sat 9AM-1PM</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start space-x-3">
+                                        <div class="bg-green-100 p-2 rounded-lg">
+                                            <span class="text-green-600">✉️</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Email Us</p>
+                                            <a href="mailto:service@unitedpest.com.sg" class="text-green-600 hover:text-green-700">
+                                                service@unitedpest.com.sg
+                                            </a>
+                                            <p class="text-sm text-gray-600">We'll respond within 24 hours</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start space-x-3">
+                                        <div class="bg-purple-100 p-2 rounded-lg">
+                                            <span class="text-purple-600">📍</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Main Office</p>
+                                            <p class="text-gray-600">794 Upper Serangoon Rd<br />Singapore 534666</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start space-x-3">
+                                        <div class="bg-orange-100 p-2 rounded-lg">
+                                            <span class="text-orange-600">🏢</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Warehouse</p>
+                                            <p class="text-gray-600">7030 Ang Mo Kio Ave 5<br />#03-43, Northstar@AMK<br />Singapore 569880</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start space-x-3">
+                                        <div class="bg-gray-100 p-2 rounded-lg">
+                                            <span class="text-gray-600">🕒</span>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Business Hours</p>
+                                            <p class="text-gray-600">
+                                                Mon-Fri: 9:00 AM - 6:00 PM<br />
+                                                Saturday: 9:00 AM - 1:00 PM<br />
+                                                Sunday: Emergency Only
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="lg:col-span-2">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-8">Request Free Quote</h3>
+                                
+                                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                                    <p class="text-sm text-blue-800">
+                                        <strong>📧 How it works:</strong> Fill out the form below and click "Send Request". 
+                                        This will open your email client with all the details pre-filled. Just send the email and we'll respond within 24 hours!
+                                    </p>
+                                </div>
+                                
+                                <form onsubmit="submitContactForm(event)" class="space-y-6">
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                                Full Name *
+                                            </label>
+                                            <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors" placeholder="Enter your full name">
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                                Phone Number *
+                                            </label>
+                                            <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors" placeholder="+65 XXXX XXXX">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                                            Email Address *
+                                        </label>
+                                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors" placeholder="your@email.com">
+                                    </div>
+
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                                Service Needed
+                                            </label>
+                                            <select name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors">
+                                                <option value="">Select a service</option>
+                                                <option value="ant">Ant Control</option>
+                                                <option value="cockroach">Cockroach Control</option>
+                                                <option value="rodent">Rodent Control</option>
+                                                <option value="termite">Termite Control</option>
+                                                <option value="bed-bug">Bed Bug Control</option>
+                                                <option value="mosquito">Mosquito Control</option>
+                                                <option value="snake">Snake Removal</option>
+                                                <option value="bird">Bird Control</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                                Urgency Level
+                                            </label>
+                                            <select name="urgency" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors">
+                                                <option value="normal">Normal (Within 48 hours)</option>
+                                                <option value="urgent">Urgent (Within 24 hours)</option>
+                                                <option value="emergency">Emergency (Within 2 hours)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                                            Describe Your Pest Problem
+                                        </label>
+                                        <textarea name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors resize-none" placeholder="Please describe the pest issue, location, and any other relevant details..."></textarea>
+                                    </div>
+
+                                    <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-4 rounded-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-200 flex items-center justify-center space-x-2">
+                                        <span>📧</span>
+                                        <span>Send Request</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Contact Banner -->
+            <section class="py-16 bg-gradient-to-r from-red-600 to-orange-600">
+                <div class="container mx-auto px-4">
+                    <div class="text-center text-white">
+                        <h2 class="text-3xl font-bold mb-4">
+                            Need Immediate Assistance?
+                        </h2>
+                        <p class="text-xl mb-8 text-red-100">
+                            Our team is ready to help you with any pest emergency.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="tel:+6592222278" class="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
+                                <span class="mr-2">📞</span>
+                                Call Emergency: +65 9222 2278
+                            </a>
+                            <a href="https://wa.me/6592222278" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-colors inline-flex items-center justify-center">
+                                <span class="mr-2">💬</span>
+                                WhatsApp Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iOCIgZmlsbD0iI2VhNTgwYyIvPgo8cGF0aCBkPSJNMTIgMTZIMzZWMzJIMTJWMTZaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="United Pest Logo" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-xl font-bold">
+                                <span class="text-gray-300">United</span>
+                                <span class="text-orange-500">Pest</span>
+                            </h3>
+                            <p class="text-xs text-gray-400 font-medium">Vector Management Pte Ltd</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Professional pest control services across Singapore. Licensed and committed 
+                        to keeping you safe and pest-free with effective, reliable solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/unitedpests/" target="_blank" class="bg-gray-800 hover:bg-orange-600 p-2 rounded-lg transition-colors">
+                            📷
+                        </a>
+                        <a href="https://www.facebook.com/Unitedpestsg/" target="_blank" class="bg-gray-800 hover:bg-orange-600 p-2 rounded-lg transition-colors">
+                            📘
+                        </a>
+                        <a href="https://wa.me/6592222278" target="_blank" class="bg-gray-800 hover:bg-green-600 p-2 rounded-lg transition-colors">
+                            💬
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><button onclick="showPage('home')" class="text-gray-300 hover:text-orange-400 transition-colors text-sm">Home</button></li>
+                        <li><button onclick="showPage('approach')" class="text-gray-300 hover:text-orange-400 transition-colors text-sm">Our Approach</button></li>
+                        <li><button onclick="showPage('services')" class="text-gray-300 hover:text-orange-400 transition-colors text-sm">Our Services</button></li>
+                        <li><button onclick="showPage('testimonials')" class="text-gray-300 hover:text-orange-400 transition-colors text-sm">Testimonials</button></li>
+                        <li><button onclick="showPage('contact')" class="text-gray-300 hover:text-orange-400 transition-colors text-sm">Contact Us</button></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-orange-400 mt-0.5">📞</span>
+                            <div>
+                                <p class="text-sm text-gray-300">Main Line</p>
+                                <a href="tel:+6566989118" class="text-white font-semibold hover:text-orange-400">
+                                    +65 6698 9118
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-orange-400 mt-0.5">📞</span>
+                            <div>
+                                <p class="text-sm text-gray-300">24-Hr Hotline</p>
+                                <a href="tel:+6592222278" class="text-white font-semibold hover:text-orange-400">
+                                    +65 9222 2278
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-orange-400 mt-0.5">✉️</span>
+                            <div>
+                                <p class="text-sm text-gray-300">Email</p>
+                                <a href="mailto:service@unitedpest.com.sg" class="text-white font-semibold hover:text-orange-400">
+                                    service@unitedpest.com.sg
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Our Locations</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-orange-400 mt-0.5">📍</span>
+                            <div>
+                                <p class="text-sm text-gray-300">Main Office</p>
+                                <p class="text-white text-sm">794 Upper Serangoon Rd<br />Singapore 534666</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-orange-400 mt-0.5">📍</span>
+                            <div>
+                                <p class="text-sm text-gray-300">Warehouse</p>
+                                <p class="text-white text-sm">7030 Ang Mo Kio Ave 5<br />#03-43, Northstar@AMK<br />Singapore 569880</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 pt-8 mt-12">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-sm text-gray-400">
+                        <p>&copy; 2024 United Pest & Vector Management Pte Ltd. All rights reserved.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/6592222278" target="_blank" class="floating-btn whatsapp-btn" title="Chat on WhatsApp">
+        💬
+    </a>
+    
+    <a href="tel:+6566989118" class="floating-btn call-btn" title="Call Now">
+        📞
+    </a>
+
+    <!-- AI Chat Button -->
+    <button onclick="toggleAIChat()" class="floating-btn ai-chat-btn" title="AI Pest Advisor">
+        🤖
+    </button>
+
+    <!-- Live Chat Button -->
+    <button onclick="toggleLiveChat()" class="floating-btn live-chat-btn" title="Live Chat Support">
+        💬
+    </button>
+
+    <!-- AI Chat Window -->
+    <div id="ai-chat" class="chat-window ai-chat">
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-2xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span>🤖</span>
+                    <div>
+                        <h3 class="font-semibold">AI Pest Advisor</h3>
+                        <p class="text-xs text-blue-100">Connects to WhatsApp</p>
+                    </div>
+                </div>
+                <button onclick="toggleAIChat()" class="text-white/80 hover:text-white">✕</button>
+            </div>
+        </div>
+        
+        <div class="flex-1 p-4 space-y-3 overflow-y-auto max-h-64">
+            <div class="flex justify-start">
+                <div class="flex items-start space-x-2 max-w-xs">
+                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                        <span class="text-xs">🤖</span>
+                    </div>
+                    <div class="bg-gray-100 p-3 rounded-lg">
+                        <p class="text-sm">Hello! I'm your AI Pest Advisor. What pest issue are you facing today? I can help identify the problem and connect you directly to our WhatsApp for immediate assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-4 py-2 border-t border-gray-200">
+            <div class="flex space-x-2">
+                <button onclick="openWhatsApp('Hi! I need help with a pest control issue. Can you assist me?')" class="flex-1 bg-green-500 hover:bg-green-600 text-white text-xs py-2 px-3 rounded-lg transition-colors">
+                    Open WhatsApp
+                </button>
+                <button onclick="window.location.href='tel:+6566989118'" class="flex-1 bg-red-500 hover:bg-red-600 text-white text-xs py-2 px-3 rounded-lg transition-colors">
+                    Call Now
+                </button>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-gray-200">
+            <div class="flex space-x-2">
+                <input type="text" id="ai-chat-input" placeholder="Describe your pest problem..." class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button onclick="sendAIMessage()" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors">
+                    📤
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Chat Window -->
+    <div id="live-chat" class="chat-window live-chat">
+        <div class="bg-gradient-to-r from-purple-600 to-purple-700 text-white p-4 rounded-t-2xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                        <span>🎧</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold">Live Chat Support</h3>
+                        <div class="flex items-center space-x-1">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <p class="text-xs text-purple-100">Emily is online</p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleLiveChat()" class="text-white/80 hover:text-white">✕</button>
+            </div>
+        </div>
+
+        <div class="flex-1 p-4 space-y-3 overflow-y-auto max-h-64">
+            <div class="flex justify-start">
+                <div class="flex items-start space-x-2 max-w-xs">
+                    <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
+                        <span class="text-xs">🎧</span>
+                    </div>
+                    <div class="bg-gray-100 p-3 rounded-lg">
+                        <p class="text-sm">Hello! I'm Emily from United Pest. How can I help you with your pest control needs today?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-4 py-2 border-t border-gray-200">
+            <div class="grid grid-cols-3 gap-2">
+                <button onclick="window.location.href='tel:+6566989118'" class="bg-green-500 hover:bg-green-600 text-white text-xs py-2 px-2 rounded-lg transition-colors flex items-center justify-center">
+                    📞 Call
+                </button>
+                <button onclick="openWhatsApp('Hi! I need help with a pest control issue. Can you assist me?')" class="bg-green-600 hover:bg-green-700 text-white text-xs py-2 px-2 rounded-lg transition-colors">
+                    WhatsApp
+                </button>
+                <button onclick="window.location.href='tel:+6592222278'" class="bg-red-500 hover:bg-red-600 text-white text-xs py-2 px-2 rounded-lg transition-colors">
+                    Emergency
+                </button>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-gray-200">
+            <div class="flex space-x-2">
+                <input type="text" id="live-chat-input" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <button onclick="sendLiveMessage()" class="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-lg transition-colors">
+                    📤
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find and activate the corresponding nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            const pageOrder = ['home', 'approach', 'services', 'testimonials', 'contact'];
+            const pageIndex = pageOrder.indexOf(pageId);
+            if (pageIndex !== -1 && navItems[pageIndex]) {
+                navItems[pageIndex].classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.textContent = '✕';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.textContent = '☰';
+            }
+        }
+
+        // Service Category Toggle
+        function showServiceCategory(categoryId) {
+            // Hide all categories
+            document.querySelectorAll('.service-category').forEach(category => {
+                category.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(categoryId).classList.add('active');
+            
+            // Update tabs
+            document.querySelectorAll('.service-tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.classList.add('text-gray-600', 'hover:text-orange-600', 'hover:bg-white');
+            });
+            
+            // Activate clicked tab
+            event.target.closest('.service-tab').classList.add('active');
+            event.target.closest('.service-tab').classList.remove('text-gray-600', 'hover:text-orange-600', 'hover:bg-white');
+        }
+
+        // Chat Functions
+        function toggleAIChat() {
+            const chatWindow = document.getElementById('ai-chat');
+            chatWindow.classList.toggle('show');
+        }
+
+        function toggleLiveChat() {
+            const chatWindow = document.getElementById('live-chat');
+            chatWindow.classList.toggle('show');
+        }
+
+        function openWhatsApp(message) {
+            const url = `https://wa.me/6592222278?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function sendAIMessage() {
+            const input = document.getElementById('ai-chat-input');
+            const message = input.value.trim();
+            if (message) {
+                const whatsappMessage = `Hi! I need help with a pest problem. Details: ${message}`;
+                openWhatsApp(whatsappMessage);
+                input.value = '';
+            }
+        }
+
+        function sendLiveMessage() {
+            const input = document.getElementById('live-chat-input');
+            const message = input.value.trim();
+            if (message) {
+                const whatsappMessage = `Hi! I need help with a pest control issue. Message: ${message}`;
+                openWhatsApp(whatsappMessage);
+                input.value = '';
+            }
+        }
+
+        // Contact Form Submission
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Create email content
+            const emailSubject = `New Pest Control Inquiry - ${data.urgency.toUpperCase()}`;
+            const emailBody = `
+New Customer Inquiry Details:
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+Service Needed: ${data.service}
+Urgency Level: ${data.urgency}
+
+Message:
+${data.message}
+
+---
+Submitted on: ${new Date().toLocaleString()}
+Reference ID: UP${Date.now().toString().slice(-6)}
+            `;
+
+            // Open email client with pre-filled content
+            const mailtoLink = `mailto:service@unitedpest.com.sg?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
+
+            alert(`Thank you ${data.name}! Your inquiry has been prepared for email. Please send the email that just opened in your email client. We'll respond within 24 hours.`);
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Enter key handlers for chat inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('ai-chat-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendAIMessage();
+                }
+            });
+            
+            document.getElementById('live-chat-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendLiveMessage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
